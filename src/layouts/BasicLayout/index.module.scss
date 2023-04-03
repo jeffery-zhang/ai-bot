@@ -1,0 +1,23 @@
+@import '../../styles/variables.scss';
+
+.mainContainer {
+  position: relative;
+  height: 100%;
+  padding-left: $sidebar-width;
+  background-color: $dim-bg-color;
+  .sidebar {
+    position: absolute;
+    width: $sidebar-width;
+    left: 0;
+    top: 0;
+    height: 100%;
+    padding: $container-padding;
+    background-color: $bg-color;
+    transition: all .3s $cubic-bezier;
+  }
+  .content {
+    height: 100%;
+    padding: $container-padding;
+    overflow: hidden;
+  }
+}

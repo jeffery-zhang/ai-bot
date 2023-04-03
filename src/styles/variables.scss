@@ -1,0 +1,24 @@
+@function dynamicVar($name) {
+  @return var(--#{$name})
+};
+
+// Global colors
+$theme-color: dynamicVar(theme-color);
+$primary-color: dynamicVar(primary-color);
+$success-color: dynamicVar(success-color);
+$warning-color: dynamicVar(warning-color);
+$danger-color: dynamicVar(danger-color);
+// Font colors
+$normal-font-color: dynamicVar(normal-font-color);
+$secondary-font-color: dynamicVar(secondary-font-color);
+// Background colors
+$dim-bg-color: dynamicVar(dim-bg-color);
+$bg-color: dynamicVar(bg-color);
+// Border colors
+$dim-border-color: dynamicVar(dim-border-color);
+// Sidebar width
+$sidebar-width: dynamicVar(sidebar-width);
+// Transition funtion
+$cubic-bezier: dynamicVar(cubic-bezier);
+// Paddings
+$container-padding: dynamicVar(container-padding);
