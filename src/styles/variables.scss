@@ -8,12 +8,14 @@ $primary-color: dynamicVar(primary-color);
 $success-color: dynamicVar(success-color);
 $warning-color: dynamicVar(warning-color);
 $danger-color: dynamicVar(danger-color);
+$hover-color: dynamicVar(hover-color);
 // Font colors
 $normal-font-color: dynamicVar(normal-font-color);
 $secondary-font-color: dynamicVar(secondary-font-color);
 // Background colors
-$dim-bg-color: dynamicVar(dim-bg-color);
 $bg-color: dynamicVar(bg-color);
+$dim-bg-color: dynamicVar(dim-bg-color);
+$cover-bg-color: dynamicVar(cover-bg-color);
 // Border colors
 $dim-border-color: dynamicVar(dim-border-color);
 // Sidebar width
@@ -22,3 +24,16 @@ $sidebar-width: dynamicVar(sidebar-width);
 $cubic-bezier: dynamicVar(cubic-bezier);
 // Paddings
 $container-padding: dynamicVar(container-padding);
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%img-size {
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}

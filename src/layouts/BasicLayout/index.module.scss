@@ -1,10 +1,14 @@
-@import '../../styles/variables.scss';
+@import '@/styles/variables.scss';
 
-.mainContainer {
+.container {
   position: relative;
   height: 100%;
   padding-left: $sidebar-width;
   background-color: $dim-bg-color;
+  transition: all .3s $cubic-bezier;
+  &.close {
+    padding-left: 0;
+  }
   .sidebar {
     position: absolute;
     width: $sidebar-width;
@@ -12,12 +16,65 @@
     top: 0;
     height: 100%;
     padding: $container-padding;
-    background-color: $bg-color;
+    background-color: $theme-color;
     transition: all .3s $cubic-bezier;
+    z-index: 199;
+    &.close {
+      width: 0;
+      padding: 0;
+    }
+  }
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
   }
   .content {
-    height: 100%;
+    flex: 1;
     padding: $container-padding;
-    overflow: hidden;
+  }
+  .cover {
+    display: none;
+  }
+  .showIcon {
+    position: fixed;
+    left: 210px;
+    bottom: 20px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: $bg-color;
+    cursor: pointer;
+    z-index: 999;
+    transition: all .3s $cubic-bezier;
+    @extend %flex-center;
+    @extend %img-size;
+    &:hover {
+      background-color: $hover-color;
+    }
+    &.close {
+      left: 20px;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding-left: 0;
+    .cover {
+      display: block;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: $cover-bg-color;
+      z-index: 99;
+    }
+    .showIcon {
+      display: none;
+    }
   }
 }

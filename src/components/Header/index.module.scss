@@ -1,0 +1,20 @@
+@import '@/styles/variables.scss';
+
+.header {
+  display: none;
+  .menuIcon {
+    width: 28px;
+    height: 28px;
+    @extend %img-size;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 $container-padding;
+    background-color: $theme-color;
+  }
+}

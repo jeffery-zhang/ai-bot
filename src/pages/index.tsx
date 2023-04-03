@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import { BasicLayout } from '@/layouts/BasicLayout'
+import { useIndexedDb } from '@/service/dbService'
 
-export default function Home() {
+export default function Index() {
   return (
     <>
       <Head>
