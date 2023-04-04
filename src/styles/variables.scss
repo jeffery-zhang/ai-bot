@@ -9,14 +9,17 @@ $success-color: dynamicVar(success-color);
 $warning-color: dynamicVar(warning-color);
 $danger-color: dynamicVar(danger-color);
 $hover-color: dynamicVar(hover-color);
+$dim-hover-color: dynamicVar(dim-hover-color);
 // Font colors
 $normal-font-color: dynamicVar(normal-font-color);
+$light-font-color: dynamicVar(light-font-color);
 $secondary-font-color: dynamicVar(secondary-font-color);
 // Background colors
 $bg-color: dynamicVar(bg-color);
 $dim-bg-color: dynamicVar(dim-bg-color);
 $cover-bg-color: dynamicVar(cover-bg-color);
 // Border colors
+$light-border-color: dynamicVar(light-border-color);
 $dim-border-color: dynamicVar(dim-border-color);
 // Sidebar width
 $sidebar-width: dynamicVar(sidebar-width);
@@ -36,4 +39,10 @@ $container-padding: dynamicVar(container-padding);
     width: 100%;
     height: 100%;
   }
+}
+
+%ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

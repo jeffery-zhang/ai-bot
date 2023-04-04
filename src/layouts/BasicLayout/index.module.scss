@@ -17,6 +17,7 @@
     height: 100%;
     padding: $container-padding;
     background-color: $theme-color;
+    overflow: hidden;
     transition: all .3s $cubic-bezier;
     z-index: 199;
     &.close {
@@ -32,7 +33,7 @@
   }
   .content {
     flex: 1;
-    padding: $container-padding;
+    background-color: $bg-color;
   }
   .cover {
     display: none;

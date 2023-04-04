@@ -1,0 +1,29 @@
+@import '@/styles/variables.scss';
+
+.sidebar {
+  height: 100%;
+  .convItem {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s $cubic-bezier;
+    @extend %flex-center;
+    &:hover {
+      background-color: $dim-hover-color;
+    }
+    justify-content: flex-start;
+    &.addItem {
+      border: 1px solid $light-border-color;
+    }
+    &.currItem {
+      background-color: $dim-hover-color;
+    }
+    .title {
+      width: 100%;
+      font-size: 14px;
+      color: $light-font-color;
+      @extend %ellipsis
+    }
+  }
+}

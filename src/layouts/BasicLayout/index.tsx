@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Header } from '@/components/Header'
+import { Sidebar } from '@/components/Sidebar'
 import ArrowIcon from '../../../public/arrow.svg'
 import styles from './index.module.scss'
 import type { FC, ReactNode } from 'react'
@@ -18,7 +19,7 @@ export const BasicLayout: FC<IProps> = ({ children }) => {
   
   return <main className={`${styles.container} ${isOpen ? '' : styles.close}`}>
     <aside className={`${styles.sidebar} ${isOpen ? '' : styles.close}`}>
-
+      <Sidebar />
     </aside>
     <div className={styles.mainContainer}>
       <Header setOpen={() => setIsOpen(true)} />

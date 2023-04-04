@@ -1,39 +1,28 @@
-import { useEffect, useState } from 'react'
-import type { ConversationDataType } from '@/types'
+import Dexie, { Table } from 'dexie'
+import type { ConversationDataType, MessageDataType } from '@/types'
 
-export const useIndexedDb = () => {
-  const [db, setDb] = useState<IDBDatabase>()
+class ChatDB extends Dexie {
+  conversations!: Table<ConversationDataType>
+  messages!: Table<MessageDataType>
 
-  useEffect(() => {
-    const openDb = async () => {
-      const request = indexedDB.open('conversations', 1)
-      request.onsuccess = () => setDb(request.result)
-      request.onerror = () => console.error(request.error)
-      request.onupgradeneeded = () => {
-        const db = request.result
-        db.createObjectStore('conversation', { keyPath: 'id' })
-      }
-    }
-    openDb()
+  constructor() {
+    super('ChatDB')
+    this.version(1).stores({
+      conversations: 'id',
+      messages: 'id, conId',
+    })
+  }
 
-    return () => db?.close()
-  }, [])
-
-  const get = async (id: ConversationDataType['id']): Promise<ConversationDataType> => new Promise((resolve, reject) => {
-    const transaction = db?.transaction(['conversation'], 'readonly')
-    const store = transaction?.objectStore('conversation')
-    const request = store?.get(id)
-    request!.onsuccess = () => resolve(request!.result)
-    request!.onerror = () => reject(request!.error)
-  })
-
-  const getAll = async (): Promise<ConversationDataType[]> => new Promise((resolve, reject) => {
-    const transaction = db?.transaction(['conversation'], 'readonly')
-    const store = transaction?.objectStore('conversation')
-    const request = store?.getAll()
-    request!.onsuccess = () => resolve(request!.result)
-    request!.onerror = () => reject(request!.error)
-  })
-
-  
+  deleteConversation(conId: string) {
+    return this.transaction('rw', this.conversations, this.messages, async () => {
+      this.messages.where({ conId }).delete()
+      this.conversations.delete(conId)
+    })
+  }
 }
+
+export const db = new ChatDB()
+
+export const clearDb = () => db.transaction('rw', db.conversations, db.messages, async () => {
+  await Promise.all(db.tables.map(table => table.clear()))
+})

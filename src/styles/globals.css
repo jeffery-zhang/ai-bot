@@ -7,14 +7,17 @@
   --warning-color: #FFF8C5;
   --danger-color: #CF2C2E;
   --hover-color: rgba(255, 255, 255, .9);
+  --dim-hover-color: rgba(255, 255, 255, .1);
   /* Font colors */
   --normal-font-color: #333;
+  --light-font-color: #fff;
   --secondary-font-color: #8C959F;
   /* Background colors */
   --bg-color: #fff;
   --dim-bg-color: #F6F8FA;
   --cover-bg-color: rgba(0, 0, 0, .5);
   /* Border colors */
+  --light-border-color: #57606a;
   --dim-border-color: rgba(27, 31, 36, 0.15);
   /* Sidebar width */
   --sidebar-width: 260px;

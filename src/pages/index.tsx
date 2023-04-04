@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import { BasicLayout } from '@/layouts/BasicLayout'
-import { useIndexedDb } from '@/service/dbService'
+import { Messages } from '@/components/Messages'
 
 export default function Index() {
+
   return (
     <>
       <Head>
@@ -12,7 +13,7 @@ export default function Index() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BasicLayout>
-        <h1>Home</h1>
+        <Messages />
       </BasicLayout>
     </>
   )

@@ -10,13 +10,13 @@ export interface ConversationDataType {
   createTime: string
   updateTime: string
   title: string
-  messages: MessageDataType[]
 }
 
 export interface MessageDataType {
   id: string
+  conId: string
   createTime: string
-  role: string
+  role: 'user' | 'assistant' | 'system'
   content: string
   name?: string
 }
