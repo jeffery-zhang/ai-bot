@@ -15,7 +15,6 @@ export const AddConv = () => {
     const newItem: ConversationDataType = {
       id,
       createTime: now.format('YYYY-MM-DD HH:mm:ss'),
-      updateTime: now.format('YYYY-MM-DD HH:mm:ss'),
       title: 'New Conversation',
     }
     await db.conversations.add(newItem)

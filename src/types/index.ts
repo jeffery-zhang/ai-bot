@@ -8,7 +8,6 @@ export interface ResponseData<T = any> {
 export interface ConversationDataType {
   id: string
   createTime: string
-  updateTime: string
   title: string
 }
 
@@ -20,3 +19,5 @@ export interface MessageDataType {
   content: string
   name?: string
 }
+
+export type RequestBodyType = Pick<MessageDataType, 'role' | 'content'>

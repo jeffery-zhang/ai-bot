@@ -24,7 +24,7 @@
     border-radius: 4px;
     outline: none;
     font-family: inherit;
-    color: #333;
+    color: $normal-font-color;
     resize: none;
     transition: all .3s $cubic-bezier;
     &:focus, &:active {

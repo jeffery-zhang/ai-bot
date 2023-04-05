@@ -8,7 +8,6 @@ export class GlobalStore {
 
   private _currConv: ConversationDataType['id'] = ''
   private _responding: boolean = false
-  private _tempMsgs: MessageDataType[] = []
   
   get currConv() {
     return this._currConv
@@ -22,12 +21,5 @@ export class GlobalStore {
   }
   set responding(responding: boolean) {
     this._responding = responding
-  }
-
-  get tempMsgs() {
-    return this._tempMsgs
-  }
-  set tempMsgs(msgs: MessageDataType[]) {
-    this._tempMsgs = msgs
   }
 }
